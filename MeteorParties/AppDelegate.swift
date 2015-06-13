@@ -11,7 +11,7 @@ import Meteor
 import GoogleMaps
 import CoreData
 
-let Meteor = METCoreDataDDPClient(serverURL: NSURL(string: "ws://localhost:3000/websocket")!)
+let Meteor = METDDPClient(serverURL: NSURL(string: "ws://localhost:3000/websocket")!)
 let googleMapsApiKey = "AIzaSyCD7G1fR0KxQqhMKBvb-GLt3TGR6_06A8E"
 
 @UIApplicationMain
@@ -34,6 +34,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Meteor.addSubscriptionWithName("parties")
       }
     }
+    
     return true
   }
   
