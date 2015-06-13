@@ -1,4 +1,5 @@
 PODS:
+  - GoogleMaps (1.10.0)
   - InflectorKit (0.0.1)
   - Meteor (0.1.2):
     - InflectorKit
@@ -8,9 +9,11 @@ PODS:
   - SimpleKeychain (0.4.0)
 
 DEPENDENCIES:
+  - GoogleMaps
   - Meteor
 
 SPEC CHECKSUMS:
+  GoogleMaps: 8eafd25b658a6401ca45a185700716c4a9e9edf2
   InflectorKit: 64497199e6764f4d8337cab7f700a77b13d76a73
   Meteor: bf6d174608167b138ee44959309e3a8a7561fd83
   PocketSocket: eee7ef375f55b98e7ca79e097d9c61fd688e9494

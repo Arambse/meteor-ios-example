@@ -10,9 +10,19 @@ import UIKit
 
 class MapViewController: UIViewController {
   
+  @IBOutlet weak var mapView: GMSMapView!
+  @IBOutlet weak var mapCenterPinImage: UIImageView!
+  @IBOutlet weak var pinImageVerticalConstraint: NSLayoutConstraint!
+  
   override func viewDidLoad() {
     super.viewDidLoad()
-    // Do any additional setup after loading the view, typically from a nib.
+    var camera = GMSCameraPosition.cameraWithLatitude(-33.86,
+      longitude: 151.20, zoom: 6)
+    self.mapView.camera = camera
+  }
+  
+  override func viewDidAppear(animated: Bool) {
+
   }
   
   override func didReceiveMemoryWarning() {

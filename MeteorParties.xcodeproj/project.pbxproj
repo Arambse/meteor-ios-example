@@ -17,6 +17,22 @@
 		2455DF261B23922B004168BE /* background2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2455DF231B23922B004168BE /* background2.jpg */; };
 		2455DF271B23922B004168BE /* angular-meteor-logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 2455DF241B23922B004168BE /* angular-meteor-logo.png */; };
 		2455DF281B23922B004168BE /* background1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2455DF251B23922B004168BE /* background1.jpg */; };
+		24AA2E631B251688004D6E07 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24AA2E621B251688004D6E07 /* AVFoundation.framework */; };
+		24AA2E651B251691004D6E07 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24AA2E641B251691004D6E07 /* CoreData.framework */; };
+		24AA2E671B25169A004D6E07 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24AA2E661B25169A004D6E07 /* CoreLocation.framework */; };
+		24AA2E691B2516A0004D6E07 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24AA2E681B2516A0004D6E07 /* CoreText.framework */; };
+		24AA2E6B1B2516AA004D6E07 /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24AA2E6A1B2516AA004D6E07 /* GLKit.framework */; };
+		24AA2E6D1B2516AF004D6E07 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24AA2E6C1B2516AF004D6E07 /* ImageIO.framework */; };
+		24AA2E6F1B2516B9004D6E07 /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 24AA2E6E1B2516B9004D6E07 /* libc++.dylib */; };
+		24AA2E711B2516C3004D6E07 /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 24AA2E701B2516C3004D6E07 /* libicucore.dylib */; };
+		24AA2E731B2516CD004D6E07 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 24AA2E721B2516CD004D6E07 /* libz.dylib */; };
+		24AA2E751B2516D3004D6E07 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24AA2E741B2516D3004D6E07 /* OpenGLES.framework */; };
+		24AA2E771B2516D9004D6E07 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24AA2E761B2516D9004D6E07 /* QuartzCore.framework */; };
+		24AA2E791B2516E2004D6E07 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24AA2E781B2516E2004D6E07 /* SystemConfiguration.framework */; };
+		24AA2E7D1B2B2AB5004D6E07 /* Party.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 24AA2E7B1B2B2AB5004D6E07 /* Party.xcdatamodeld */; };
+		24AA2E801B2B3613004D6E07 /* SubscriptionLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24AA2E7F1B2B3613004D6E07 /* SubscriptionLoader.swift */; };
+		24AA2E821B2B36BB004D6E07 /* FunctionalAdditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24AA2E811B2B36BB004D6E07 /* FunctionalAdditions.swift */; };
+		24AA2EBA1B2BC680004D6E07 /* Party.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24AA2EB91B2BC680004D6E07 /* Party.swift */; };
 		3EA44D6B34D56A0191C6BC3B /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9487308DC6478C4AE92A56CD /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
 
@@ -58,6 +74,23 @@
 		2455DF231B23922B004168BE /* background2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = background2.jpg; sourceTree = "<group>"; };
 		2455DF241B23922B004168BE /* angular-meteor-logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "angular-meteor-logo.png"; sourceTree = "<group>"; };
 		2455DF251B23922B004168BE /* background1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = background1.jpg; sourceTree = "<group>"; };
+		24AA2E5F1B2512DA004D6E07 /* MeteorParties-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MeteorParties-Bridging-Header.h"; sourceTree = "<group>"; };
+		24AA2E621B251688004D6E07 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		24AA2E641B251691004D6E07 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		24AA2E661B25169A004D6E07 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		24AA2E681B2516A0004D6E07 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
+		24AA2E6A1B2516AA004D6E07 /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
+		24AA2E6C1B2516AF004D6E07 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
+		24AA2E6E1B2516B9004D6E07 /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "usr/lib/libc++.dylib"; sourceTree = SDKROOT; };
+		24AA2E701B2516C3004D6E07 /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
+		24AA2E721B2516CD004D6E07 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		24AA2E741B2516D3004D6E07 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
+		24AA2E761B2516D9004D6E07 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		24AA2E781B2516E2004D6E07 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		24AA2E7C1B2B2AB5004D6E07 /* Party.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Party.xcdatamodel; sourceTree = "<group>"; };
+		24AA2E7F1B2B3613004D6E07 /* SubscriptionLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubscriptionLoader.swift; sourceTree = "<group>"; };
+		24AA2E811B2B36BB004D6E07 /* FunctionalAdditions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FunctionalAdditions.swift; sourceTree = "<group>"; };
+		24AA2EB91B2BC680004D6E07 /* Party.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Party.swift; sourceTree = "<group>"; };
 		33E539094A1802E60593298D /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		4244307391314032CAF6D659 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		9487308DC6478C4AE92A56CD /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -68,6 +101,18 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				24AA2E791B2516E2004D6E07 /* SystemConfiguration.framework in Frameworks */,
+				24AA2E771B2516D9004D6E07 /* QuartzCore.framework in Frameworks */,
+				24AA2E751B2516D3004D6E07 /* OpenGLES.framework in Frameworks */,
+				24AA2E731B2516CD004D6E07 /* libz.dylib in Frameworks */,
+				24AA2E711B2516C3004D6E07 /* libicucore.dylib in Frameworks */,
+				24AA2E6F1B2516B9004D6E07 /* libc++.dylib in Frameworks */,
+				24AA2E6D1B2516AF004D6E07 /* ImageIO.framework in Frameworks */,
+				24AA2E6B1B2516AA004D6E07 /* GLKit.framework in Frameworks */,
+				24AA2E691B2516A0004D6E07 /* CoreText.framework in Frameworks */,
+				24AA2E671B25169A004D6E07 /* CoreLocation.framework in Frameworks */,
+				24AA2E651B251691004D6E07 /* CoreData.framework in Frameworks */,
+				24AA2E631B251688004D6E07 /* AVFoundation.framework in Frameworks */,
 				3EA44D6B34D56A0191C6BC3B /* Pods.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -105,6 +150,8 @@
 		2455DEFD1B236248004168BE /* MeteorParties */ = {
 			isa = PBXGroup;
 			children = (
+				24AA2E7E1B2B3603004D6E07 /* Helpers */,
+				24AA2E7A1B2B2AA4004D6E07 /* Model */,
 				2455DF001B236248004168BE /* AppDelegate.swift */,
 				2455DF021B236248004168BE /* MapViewController.swift */,
 				2455DF041B236248004168BE /* PartiesListViewController.swift */,
@@ -112,6 +159,7 @@
 				2455DF091B236248004168BE /* Images.xcassets */,
 				2455DF0B1B236248004168BE /* LaunchScreen.xib */,
 				2455DEFE1B236248004168BE /* Supporting Files */,
+				24AA2E5F1B2512DA004D6E07 /* MeteorParties-Bridging-Header.h */,
 			);
 			path = MeteorParties;
 			sourceTree = "<group>";
@@ -152,6 +200,24 @@
 			name = Images;
 			sourceTree = "<group>";
 		};
+		24AA2E7A1B2B2AA4004D6E07 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				24AA2EB91B2BC680004D6E07 /* Party.swift */,
+				24AA2E7B1B2B2AB5004D6E07 /* Party.xcdatamodeld */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		24AA2E7E1B2B3603004D6E07 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				24AA2E811B2B36BB004D6E07 /* FunctionalAdditions.swift */,
+				24AA2E7F1B2B3613004D6E07 /* SubscriptionLoader.swift */,
+			);
+			name = Helpers;
+			sourceTree = "<group>";
+		};
 		3D0A10CC7D08248FB45AA582 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -164,6 +230,18 @@
 		8366E50520AB41FBC0E2559F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				24AA2E781B2516E2004D6E07 /* SystemConfiguration.framework */,
+				24AA2E761B2516D9004D6E07 /* QuartzCore.framework */,
+				24AA2E741B2516D3004D6E07 /* OpenGLES.framework */,
+				24AA2E721B2516CD004D6E07 /* libz.dylib */,
+				24AA2E701B2516C3004D6E07 /* libicucore.dylib */,
+				24AA2E6E1B2516B9004D6E07 /* libc++.dylib */,
+				24AA2E6C1B2516AF004D6E07 /* ImageIO.framework */,
+				24AA2E6A1B2516AA004D6E07 /* GLKit.framework */,
+				24AA2E681B2516A0004D6E07 /* CoreText.framework */,
+				24AA2E661B25169A004D6E07 /* CoreLocation.framework */,
+				24AA2E641B251691004D6E07 /* CoreData.framework */,
+				24AA2E621B251688004D6E07 /* AVFoundation.framework */,
 				9487308DC6478C4AE92A56CD /* Pods.framework */,
 			);
 			name = Frameworks;
@@ -326,6 +404,10 @@
 			files = (
 				2455DF051B236248004168BE /* PartiesListViewController.swift in Sources */,
 				2455DF011B236248004168BE /* AppDelegate.swift in Sources */,
+				24AA2E821B2B36BB004D6E07 /* FunctionalAdditions.swift in Sources */,
+				24AA2EBA1B2BC680004D6E07 /* Party.swift in Sources */,
+				24AA2E7D1B2B2AB5004D6E07 /* Party.xcdatamodeld in Sources */,
+				24AA2E801B2B3613004D6E07 /* SubscriptionLoader.swift in Sources */,
 				2455DF031B236248004168BE /* MapViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -454,6 +536,7 @@
 			baseConfigurationReference = 33E539094A1802E60593298D /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Aram Ben Shushan Ehrlich (WCDZ373ALL)";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -471,6 +554,8 @@
 				);
 				MACH_O_TYPE = mh_execute;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "MeteorParties/MeteorParties-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -479,6 +564,7 @@
 			baseConfigurationReference = 4244307391314032CAF6D659 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -495,6 +581,7 @@
 				);
 				MACH_O_TYPE = mh_execute;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "MeteorParties/MeteorParties-Bridging-Header.h";
 			};
 			name = Release;
 		};
@@ -563,6 +650,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		24AA2E7B1B2B2AB5004D6E07 /* Party.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				24AA2E7C1B2B2AB5004D6E07 /* Party.xcdatamodel */,
+			);
+			currentVersion = 24AA2E7C1B2B2AB5004D6E07 /* Party.xcdatamodel */;
+			path = Party.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 2455DEF31B236248004168BE /* Project object */;
 }
