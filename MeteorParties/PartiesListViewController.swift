@@ -17,9 +17,8 @@ class PartiesListViewController: UIViewController {
   @IBOutlet var subtitleLabel: UILabel!
   @IBOutlet weak var tableView: UITableView!
   
+  private var appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
   private var subscriptionLoader: SubscriptionLoader!
-  
-  var parties =  [Party]()
   
   @IBAction func addName(sender: AnyObject) {
     
@@ -60,115 +59,71 @@ class PartiesListViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    title = "Parties"
+    title = "Parties Yeah!"
     self.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "Cell")
-    
-    initalizeSubscriptionLoader()
     
     NSNotificationCenter.defaultCenter().addObserver(
       self,
-      selector: "databaseDidChange:",
-      name: METDatabaseDidChangeNotification,
+      selector: "partiesDataChanged:",
+      name: MTRAppDelegateDataChanged,
       object: nil)
   }
   
   override func viewDidAppear(animated: Bool) {
   }
-  override func viewDidDisappear(animated: Bool) {
-    NSNotificationCenter.defaultCenter().removeObserver(self)
-  }
-  
+
   override func didReceiveMemoryWarning() {
     super.didReceiveMemoryWarning()
   }
   
   
-  //MARK Subscriptions
+  //MARK Save
   
-  func configureSubscriptionLoader(subscriptionLoader: SubscriptionLoader) {
-    subscriptionLoader.addSubscriptionWithName("parties", parameters: "")
-  }
-  func initalizeSubscriptionLoader() {
-    
-    subscriptionLoader = SubscriptionLoader()
-    subscriptionLoader!.delegate = self
-    
-    configureSubscriptionLoader(subscriptionLoader!)
-    
-    if !subscriptionLoader!.isReady {
-      if Meteor.connectionStatus == .Offline {
-        println("Offline")
-      } else {
-        println("Online")
-        
-        var allParties = Meteor.database.collectionWithName("parties").allDocuments as Array
-        for (index, element) in enumerate(allParties) {
-          parties.append(Party(document: element as! METDocument))
-        }
-        tableView.reloadData();
-      }
-    }
-  }
   func saveNewParty(name: String, description: String) {
     Meteor.database.performUpdates { () -> Void in
       var partiesCollection = Meteor.database.collectionWithName("parties")
       var documentID = partiesCollection.insertDocumentWithFields(["name":name, "party_description":description, "owner":Meteor.userID])
     }
   }
- 
-  //MARK: - Notifications
   
-  @objc func databaseDidChange(notification: NSNotification){
-    if let info = notification.userInfo {
-      
-      Meteor.database.collectionWithName("parties")
-      
-      var changes = info[METDatabaseChangesKey] as! METDatabaseChanges
-      
-      changes.enumerateDocumentChangeDetailsUsingBlock({
-        (details: METDocumentChangeDetails!, stop: UnsafeMutablePointer<ObjCBool>) -> Void in
-      
-        var changeType = details.changeType
-        var documentId = details.documentKey.documentID as! String
-      
-        switch changeType {
-          case .Add:
-            self.parties.insert(Party(details: details), atIndex: self.parties.count)
-            
-            dispatch_async(dispatch_get_main_queue(),{
-              var nspath = NSIndexPath(forRow: self.parties.count - 1, inSection: 0)
-              self.tableView.insertRowsAtIndexPaths([nspath], withRowAnimation: UITableViewRowAnimation.Fade)
-              self.tableView.endUpdates()
-            })
-          
-          case .Remove:
-            
-            var partyIndex = -1
-            var partiesNSArray = self.parties as NSArray
-            
-            partiesNSArray.enumerateObjectsUsingBlock({ (element, index, stop) -> Void in
-              var party = element as! Party
-              if party._id! == documentId {
-                partyIndex = index
-                stop.initialize(true)
-              }
-            })
-
-            self.parties.removeAtIndex(partyIndex)
-            
+  //MARK Notifications
+  func partiesDataChanged(notification: NSNotification) {
+    
+    var changeDetails = notification.object as! METDocumentChangeDetails
+    var userInfo = notification.userInfo
+    var changeType = changeDetails.changeType
+    
+    switch changeType {
+      case .Add:
+        dispatch_async(dispatch_get_main_queue(),{
+          var nspath = NSIndexPath(forRow: self.appDelegate.parties.count - 1, inSection: 0)
+          self.tableView.insertRowsAtIndexPaths([nspath], withRowAnimation: UITableViewRowAnimation.Fade)
+          self.tableView.endUpdates()
+        })
+      case .Remove:
+        if let info = notification.userInfo as? Dictionary<String,NSNumber> {
+          if let partyIndex = info["IndexToRemove"] as? Int {
             dispatch_async(dispatch_get_main_queue(),{
               var nspath = NSIndexPath(forRow: partyIndex, inSection: 0)
               self.tableView.deleteRowsAtIndexPaths([nspath], withRowAnimation: UITableViewRowAnimation.Fade)
               self.tableView.endUpdates()
             })
-            
-          case .Update:
-            break
-          
+          }
+          else {
+            print("no value for key\n")
+          }
         }
-      })
+        else {
+          print("wrong userInfo type")
+        }
+      case .Update:
+        break
     }
+
+    
+
   }
+ 
 }
 
 // MARK: - UITableViewDataSource
@@ -179,15 +134,16 @@ extension PartiesListViewController: UITableViewDataSource {
     return 1
   }
   func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return parties.count
+    return appDelegate.parties.count
   }
+  
   func tableView(tableView: UITableView,
     cellForRowAtIndexPath
     indexPath: NSIndexPath) -> UITableViewCell {
       
       var cell = tableView.dequeueReusableCellWithIdentifier("Cell") as! UITableViewCell
 
-      let party = parties[indexPath.row]
+      let party = appDelegate.parties[indexPath.row]
       cell.textLabel?.text = party.name
       
       return cell
@@ -201,7 +157,7 @@ extension PartiesListViewController: UITableViewDelegate {
   func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
     if editingStyle == .Delete {
       var partiesCollection = Meteor.database.collectionWithName("parties")
-      var documentID = partiesCollection.removeDocumentWithID(parties[indexPath.row]._id)
+      var documentID = partiesCollection.removeDocumentWithID(appDelegate.parties[indexPath.row]._id)
     }
   }
 }
@@ -215,11 +171,3 @@ extension PartiesListViewController: UIScrollViewDelegate {
     let row = indexPath.row
   }
 }
-
-extension PartiesListViewController: SubscriptionLoaderDelegate {
-  
-  func subscriptionLoader(subscriptionLoader: SubscriptionLoader, subscription: METSubscription, didFailWithError error: NSError) {
-  }
-}
-
-
