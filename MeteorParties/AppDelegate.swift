@@ -64,6 +64,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
   
   //MARK Notifications
+  
   func databaseDidChange(notification: NSNotification){
     if let info = notification.userInfo {
       
@@ -80,7 +81,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         switch changeType {
         case .Add:
-          self.parties.insert(Party(details: details), atIndex: self.parties.count)
+          var party = Party(details: details)
+          self.parties.insert(party, atIndex: self.parties.count)
+          dataUserInfo = ["party": party]
         case .Remove:
           
           var partyIndex: Int = -1
@@ -108,6 +111,62 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
       })
     }
+  }
+  
+  func getAddNewPartyAlert(hasLocation: Bool, location: CLLocationCoordinate2D) -> UIAlertController  {
+    var alert = UIAlertController(title: "New Party 🙆",
+      message: "Please enter data",
+      preferredStyle: .Alert)
+    
+    let saveAction = UIAlertAction(title: "Save",
+      style: .Default) { (action: UIAlertAction!) -> Void in
+        
+        let nameField = alert.textFields![0] as! UITextField
+        let descField = alert.textFields![1] as! UITextField
+        
+        if hasLocation {
+          self.saveNewPartyWithLocation(nameField.text,description: descField.text, location: location)
+        } else {
+          self.saveNewParty(nameField.text,description: descField.text)
+        }
+    }
+    
+    let cancelAction = UIAlertAction(title: "Cancel",
+      style: .Default) { (action: UIAlertAction!) -> Void in
+    }
+    
+    alert.addTextFieldWithConfigurationHandler {
+      (textField: UITextField!) -> Void in
+      textField.placeholder = "Name"
+    }
+    alert.addTextFieldWithConfigurationHandler {
+      (textField: UITextField!) -> Void in
+      textField.placeholder = "Description"
+    }
+    
+    alert.addAction(saveAction)
+    alert.addAction(cancelAction)
+    
+    return alert
+  }
+  //MARK Save
+  
+  func saveNewParty(name: String, description: String) {
+    Meteor.database.performUpdates { () -> Void in
+      var partiesCollection = Meteor.database.collectionWithName("parties")
+      var documentID = partiesCollection.insertDocumentWithFields(["name":name, "party_description":description, "owner":Meteor.userID])
+    }
+  }
+  
+  func saveNewPartyWithLocation(name: String, description: String, location: CLLocationCoordinate2D) {
+    
+    var partyLocation = Dictionary<String,String>()
+    partyLocation["latitude"] = String(stringInterpolationSegment: location.latitude)
+    partyLocation["longitude"] = String(stringInterpolationSegment: location.longitude)
+    
+    var partiesCollection = Meteor.database.collectionWithName("parties")
+    var documentID = partiesCollection.insertDocumentWithFields(["name":name, "party_description":description, "location": partyLocation, "owner":Meteor.userID])
+
   }
 
 }

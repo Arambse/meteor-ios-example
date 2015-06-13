@@ -9,12 +9,18 @@
 import Foundation
 import Meteor
 
+struct Location {
+  var latitude: String
+  var longitude: String
+}
+
 class Party: NSObject {
 
     var _id: String?
     var name: String?
     var party_description: String?
     var is_public: NSNumber?
+    var location: Location?
     var owner: String?
     var originalDoc: METDocument?
 
@@ -22,16 +28,6 @@ class Party: NSObject {
     super.init()
   }
   
-  convenience init(document: METDocument) {
-    self.init()
-    name = document.fields["name"] as? String
-    party_description = document.fields["party_description"] as? String
-    is_public = document.fields["is_public"] as? NSNumber
-    owner = document.fields["owner"] as? String
-    _id = document.key.documentID as? String
-    
-    originalDoc = document
-  }
   
   convenience init(details: METDocumentChangeDetails) {
     self.init()
@@ -39,6 +35,10 @@ class Party: NSObject {
     party_description = details.changedFields["party_description"] as? String
     is_public = details.changedFields["is_public"] as? NSNumber
     owner = details.changedFields["owner"] as? String
+    var location = details.changedFields["location"] as? Dictionary<String,String>
+    if let locationObj = location {
+      self.location = Location(latitude: locationObj["latitude"]!, longitude: locationObj["longitude"]!)
+    }
     _id = details.documentKey.documentID as? String
 
   }

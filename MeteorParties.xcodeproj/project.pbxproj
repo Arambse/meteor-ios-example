@@ -34,6 +34,8 @@
 		24AA2E821B2B36BB004D6E07 /* FunctionalAdditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24AA2E811B2B36BB004D6E07 /* FunctionalAdditions.swift */; };
 		24AA2EBA1B2BC680004D6E07 /* Party.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24AA2EB91B2BC680004D6E07 /* Party.swift */; };
 		24AA2EBC1B2C66E5004D6E07 /* ArrayExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24AA2EBB1B2C66E5004D6E07 /* ArrayExtensions.swift */; };
+		24BF5F9C1B2CA0970010D26C /* Icon1sized.png in Resources */ = {isa = PBXBuildFile; fileRef = 24BF5F9A1B2CA0970010D26C /* Icon1sized.png */; };
+		24BF5F9D1B2CA0970010D26C /* icon2Sized.png in Resources */ = {isa = PBXBuildFile; fileRef = 24BF5F9B1B2CA0970010D26C /* icon2Sized.png */; };
 		3EA44D6B34D56A0191C6BC3B /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9487308DC6478C4AE92A56CD /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
 
@@ -93,6 +95,8 @@
 		24AA2E811B2B36BB004D6E07 /* FunctionalAdditions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FunctionalAdditions.swift; sourceTree = "<group>"; };
 		24AA2EB91B2BC680004D6E07 /* Party.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Party.swift; sourceTree = "<group>"; };
 		24AA2EBB1B2C66E5004D6E07 /* ArrayExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrayExtensions.swift; sourceTree = "<group>"; };
+		24BF5F9A1B2CA0970010D26C /* Icon1sized.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon1sized.png; sourceTree = "<group>"; };
+		24BF5F9B1B2CA0970010D26C /* icon2Sized.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon2Sized.png; sourceTree = "<group>"; };
 		33E539094A1802E60593298D /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		4244307391314032CAF6D659 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		9487308DC6478C4AE92A56CD /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -152,6 +156,7 @@
 		2455DEFD1B236248004168BE /* MeteorParties */ = {
 			isa = PBXGroup;
 			children = (
+				24BF5F951B2C9FD30010D26C /* Icons */,
 				24AA2E7E1B2B3603004D6E07 /* Helpers */,
 				24AA2E7A1B2B2AA4004D6E07 /* Model */,
 				2455DF001B236248004168BE /* AppDelegate.swift */,
@@ -219,6 +224,15 @@
 				24AA2EBB1B2C66E5004D6E07 /* ArrayExtensions.swift */,
 			);
 			name = Helpers;
+			sourceTree = "<group>";
+		};
+		24BF5F951B2C9FD30010D26C /* Icons */ = {
+			isa = PBXGroup;
+			children = (
+				24BF5F9A1B2CA0970010D26C /* Icon1sized.png */,
+				24BF5F9B1B2CA0970010D26C /* icon2Sized.png */,
+			);
+			name = Icons;
 			sourceTree = "<group>";
 		};
 		3D0A10CC7D08248FB45AA582 /* Pods */ = {
@@ -336,6 +350,8 @@
 			files = (
 				2420B39D1B239BFB00B3331F /* LaunchScreen.xib in Resources */,
 				2420B39C1B239BE200B3331F /* Main.storyboard in Resources */,
+				24BF5F9C1B2CA0970010D26C /* Icon1sized.png in Resources */,
+				24BF5F9D1B2CA0970010D26C /* icon2Sized.png in Resources */,
 				2455DF261B23922B004168BE /* background2.jpg in Resources */,
 				2455DF281B23922B004168BE /* background1.jpg in Resources */,
 				2455DF271B23922B004168BE /* angular-meteor-logo.png in Resources */,

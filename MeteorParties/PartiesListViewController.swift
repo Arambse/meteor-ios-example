@@ -18,42 +18,10 @@ class PartiesListViewController: UIViewController {
   @IBOutlet weak var tableView: UITableView!
   
   private var appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-  private var subscriptionLoader: SubscriptionLoader!
   
   @IBAction func addName(sender: AnyObject) {
-    
-    var alert = UIAlertController(title: "New name",
-      message: "Add a new name",
-      preferredStyle: .Alert)
-    
-    let saveAction = UIAlertAction(title: "Save",
-      style: .Default) { (action: UIAlertAction!) -> Void in
-        
-        let nameField = alert.textFields![0] as! UITextField
-        let descField = alert.textFields![1] as! UITextField
-        
-        self.saveNewParty(nameField.text,description: descField.text)
-    }
-    
-    let cancelAction = UIAlertAction(title: "Cancel",
-      style: .Default) { (action: UIAlertAction!) -> Void in
-    }
-    
-    alert.addTextFieldWithConfigurationHandler {
-      (textField: UITextField!) -> Void in
-      textField.placeholder = "New Party Name"
-    }
-    alert.addTextFieldWithConfigurationHandler {
-      (textField: UITextField!) -> Void in
-      textField.placeholder = "New Descrtiption"
-    }
-    
-    alert.addAction(saveAction)
-    alert.addAction(cancelAction)
-    
-    presentViewController(alert,
-      animated: true,
-      completion: nil)
+    var alert = appDelegate.getAddNewPartyAlert(false,location: CLLocationCoordinate2D())
+    presentViewController(alert, animated: true, completion: nil)
   }
   
   override func viewDidLoad() {
@@ -76,15 +44,6 @@ class PartiesListViewController: UIViewController {
     super.didReceiveMemoryWarning()
   }
   
-  
-  //MARK Save
-  
-  func saveNewParty(name: String, description: String) {
-    Meteor.database.performUpdates { () -> Void in
-      var partiesCollection = Meteor.database.collectionWithName("parties")
-      var documentID = partiesCollection.insertDocumentWithFields(["name":name, "party_description":description, "owner":Meteor.userID])
-    }
-  }
   
   //MARK Notifications
   func partiesDataChanged(notification: NSNotification) {
@@ -119,9 +78,6 @@ class PartiesListViewController: UIViewController {
       case .Update:
         break
     }
-
-    
-
   }
  
 }
